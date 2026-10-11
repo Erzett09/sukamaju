@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.MainSection {
+    background-image: linear-gradient(rgba(66, 58, 32, 0.65)
+        , rgba(0,0,0,0.35)),
+        url('../images/backgrounds/cashier-aesthetic.jpg');
+
+    width: 100%;
+    height: 95vh;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding-inline: 12px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.StartMenu {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.StartMenu::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 35%;
+    height: 200%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: -1;
+
+    animation: slashLight 1.5s ease-in-out 1s forwards;
+}
+
+@keyframes slashLight {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+.StartMenu .title {
+    font-family:"Be Vietnam Pro", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.3rem;
+}
+
+.title h1:nth-child(1) {
+    color: aliceblue !important;
+    animation: fadeUp forwards .5s;
+    transform: translateY(10px);
+    opacity: 0;
+}
+.title h1:nth-child(2) {
+    opacity: 0;
+    animation: fadeUp  .5s ease 0.2s forwards;
+    transform: translateY(10px);
+    color: orange !important;
+}
+
+.StartMenu h3 {
+    font-family: "Be Vietnam Pro", sans-serif;
+    text-align: center;
+    font-size: 1.50rem;
+    color: aliceblue;
+    width: 50%;
+    opacity: 0;
+    animation: fadeUp .4s ease .9s forwards;
+}
+
+.StartMenu .logo {
+    width: 100px;
+    height: 100px;
+    transform: translateX(30px) translateY(-30px) rotate(30deg);
+    opacity: 0;
+    animation: fadeUp ease .5s .4s forwards;
+}
+
+.GoButton {
+    background: linear-gradient(100deg,aliceblue,white);
+    /* padding: 1rem; */
+    width: 25rem;
+    height: 3.59rem;
+    text-align: center;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp .4s ease 1.2s forwards;
+}
+
+.smLogo {
+    width: 25px;
+    height: 25px;
+}
+
+@keyframes fadeUp {
+    
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+}
