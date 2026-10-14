@@ -1,0 +1,418 @@
+
+.page {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(249, 115, 22, 0.08),
+            transparent 30%
+        ),
+        #ffffff;
+
+    color: #27272a;
+    font-family: "Be Vietnam Pro", sans-serif;
+    padding: 2rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brandIcon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #f97316;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.2);
+}
+
+.brandName {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.brandName strong {
+    color: #f97316;
+}
+
+.content {
+    max-width: 850px;
+    margin: 5rem auto 3rem;
+    text-align: center;
+}
+
+.eyebrow {
+    color: #f97316;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.content > h1 {
+    margin-top: 1rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+}
+
+.content > h1 span {
+    color: #f97316;
+}
+
+.description {
+    max-width: 520px;
+    margin: 1rem auto 2.5rem;
+    color: #71717a;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.roleGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.roleCard {
+    width: 100%;
+    min-width: 0;
+    padding: 1.75rem;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 22px;
+    background: #ffffff;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.roleCard:hover {
+    transform: translateY(-5px);
+    border-color: #fdba74;
+    box-shadow: 0 14px 35px rgba(39, 39, 42, 0.07);
+}
+
+.roleCard:focus-visible {
+    outline: 3px solid rgba(249, 115, 22, 0.35);
+    outline-offset: 4px;
+}
+
+.selected {
+    border-color: #f97316;
+    background: #fffaf5;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.09);
+}
+
+.cardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.roleIcon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+    background: #fff0e5;
+    font-size: 1.8rem;
+}
+
+.radio {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #d4d4d8;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.radioActive {
+    border-color: #f97316;
+    background: #f97316;
+}
+
+.cardHeading {
+    margin-top: 1.5rem;
+}
+
+.cardHeading h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.cardHeading > span {
+    display: block;
+    margin-top: 0.35rem;
+    color: #f97316;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.cardDescription {
+    min-height: 72px;
+    margin-top: 1rem;
+    color: #71717a;
+    font-size: 0.875rem;
+    line-height: 1.8;
+}
+
+.featureList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 1.25rem 0 1.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.featureList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: #52525b;
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+
+.checkIcon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff0e5;
+    color: #ea580c;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.cardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f4f4f5;
+    color: #ea580c;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.arrow {
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+}
+
+.roleCard:hover .arrow {
+    transform: translate(3px, -3px);
+}
+
+.continueButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    max-width: 320px;
+    min-height: 54px;
+    margin: 2rem auto 0;
+    padding: 0.9rem 1.5rem;
+
+    border: none;
+    border-radius: 14px;
+    background: #f97316;
+    color: white;
+
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.continueButton:not(:disabled):hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+}
+
+.continueButton:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.footerText {
+    margin-top: 1rem;
+    color: #a1a1aa;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 650px) {
+    .page {
+        padding: 1.25rem;
+    }
+
+    .content {
+        margin-top: 3rem;
+    }
+
+    .roleGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .roleCard {
+        padding: 1.4rem;
+    }
+
+    .cardDescription {
+        min-height: auto;
+    }
+}
+
+
+.ContainerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContainerModal .Modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    padding: 2rem;
+    border-radius: 2rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    border: 2px solid #fdba74;
+    border-color: #fdba74;
+
+}
+
+.show {
+    animation: fadeUp .4s forwards;
+}
+
+/* .ContainerModal .Modal .ModalNavbar, .ContainerModal .Modal .ModalText, .ContainerModal .Modal .ModalButton {
+    width: 100%;
+
+} */
+
+.ContainerModal .Modal .ModalNavbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.40rem 0;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.ModalNavbar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal .ModalNavbar span {
+    margin: 0 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Modal .ModalText {
+    padding: 3rem 0;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.Modal .ModalButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.ModalButton span:nth-child(1) {
+    background: orange;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.ModalButton span:nth-child(2) {
+    background: black;
+    color: white;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .roleCard,
+    .continueButton,
+    .arrow,
+    .radio {
+        transition: none;
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

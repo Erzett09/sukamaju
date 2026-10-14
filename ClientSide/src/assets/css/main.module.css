@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.containerTextFeature {
+    height: 5rem;
+    box-shadow: 0 10px 14px 10px rgba(0,0,0,0.2);
+    margin: 2rem 0;
+    background: linear-gradient(100deg,orange,rgb(237, 178, 68),rgb(255, 187, 61),rgb(232, 193, 121));
+    text-align: center;
+}
+
+.containerTextFeature h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2rem;
+    font-size: 3.2rem;
+    color: rgb(237, 237, 237);
+    text-align: center;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
 .MainSection {
     background-image: linear-gradient(rgba(66, 58, 32, 0.65)
         , rgba(0,0,0,0.35)),
@@ -166,7 +193,8 @@
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.2);
-    
+
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .cardLogo img {
@@ -183,7 +211,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0.0rem;
     font-family: "Be Vietnam Pro", sans-serif;
     margin: 1rem 0;
 }
@@ -204,6 +232,19 @@
     background-color: rgb(239, 232, 19);
     border-radius: 2rem;
     cursor: pointer;
+}
+
+.hiddenCard {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.showCard {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 @keyframes fadeUp {
