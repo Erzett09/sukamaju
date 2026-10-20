@@ -1,10 +1,15 @@
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "../../assets/css/rolepage.module.css";
+import LoginIcon from '../../assets/images/svg/login-bracket.svg'
+import AddUserIcon from '../../assets/images/svg/add-user.svg'
+import OwnerLogo from '../../assets/images/properties/owner-kasirmaju.png'
+import cashierLogo from '../../assets/images/properties/cashier-sukamaju.png'
 
 const roles = [
     {
+        logo : OwnerLogo,
         id: "owner",
         title: "Owner",
         subtitle: "Kelola bisnis Anda",
@@ -18,6 +23,7 @@ const roles = [
         ],
     },
     {
+        logo : cashierLogo,
         id: "cashier",
         title: "Cashier",
         subtitle: "Mulai melayani pelanggan",
@@ -35,6 +41,7 @@ const roles = [
 const RolePage = () => {
     const [selectedRole, setSelectedRole] = useState("");
     const [Modal,setModal] = useState(false)
+    const OptionButtons = useRef([])
     const navigate = useNavigate();
 
     const handleContinue = () => {
@@ -48,6 +55,24 @@ const RolePage = () => {
         }
     };
 
+    function OptionButtonGo(option){
+        if (selectedRole == "owner" && option == 'haveAcc') {
+            navigate('/auth/reg/owner')
+        } 
+
+        if (selectedRole == 'owner' && option == 'noAcc') {
+            alert("no acc owner")
+        }
+
+        if (selectedRole == 'cashier' && option == 'haveAcc') {
+            alert("acc cashier") 
+        }
+
+        if (selectedRole == 'cashier' && option == 'noAcc') {
+            alert("no acc Cashier")
+        }
+    }
+
     return (
         <main className={style.page}>
 
@@ -57,35 +82,71 @@ const RolePage = () => {
                 <div className={`${style.Modal}  ${Modal ? style.show : ""} `}>
                     <div className={style.ModalNavbar}>
                         <div>
-
-                        <div className={style.brandIcon}>K</div>
-
-                    <span className={style.brandName}>
-                        Kasir <strong>Maju</strong>
-                    </span>
+                            <div className={style.brandIcon}>K</div>
+                            <span className={style.brandName}>
+                                Kasir <strong>Maju</strong>
+                                <p>
+                                    Pengaturan Akun {selectedRole == "owner" ? "owner" : 'cashier'}
+                                </p>
+                            </span>
                         </div>
-                        <span onClick={() => setModal(!Modal)}>X</span>
+                        <span className={style.Xbutton} onClick={() => setModal(!Modal)}>X</span>
                     </div>
 
                     <div className={style.ModalText}>
                         Apakah anda sudah memiliki akun <strong>{selectedRole == "owner" ? " Owner" : " Cashier"}</strong>?
+                        <p>
+                            Pilih opsi yang sesuai untuk melanjutkan ke tahap berikutnya.
+                        </p>
                     </div>
 
                     <div className={style.ModalButton}>
-                        <span>Sudah</span>
-                        <span>Belum</span>
+                        <div className={style.WrapperOptionButton} onClick={() => OptionButtonGo('haveAcc')} id="haveAcc" ref={OptionButtons}>
+                            <div className={style.imgOptionButton}>
+                                <img src={LoginIcon} alt="Login icon"></img>
+                            <div className={style.TextOptionButton}>
+                                Sudah punya akun
+                                <p>
+                                    Masuk dengan akun {selectedRole == "owner" ? "owner" : "cashier"} yang ada
+                                </p>
+                            </div>
+
+                        </div>
+                            <span className={style.arrowOptionButton}>
+                                →
+                            </span>
+                            </div>
+                        <div className={style.WrapperOptionButton} onClick={() => OptionButtonGo('noAcc')}   ref={OptionButtons}>
+                            <div className={style.imgOptionButton}>
+                                <img src={AddUserIcon} alt="add user icon"></img>
+
+                            <div className={style.TextOptionButton}>
+                                    Belum punya akun
+                                    <p>
+                                        Lanjutkan untuk membuat akun {selectedRole == 'owener' ? "owenr" : 'cashier'} baru.
+                                    </p>
+                            </div>
+                            </div>
+
+                            <span className={style.arrowOptionButton}>
+                                →
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
             )}
 
             <div className={style.wrapper}>
-                <header className={style.header}>
+                <header className={style.header} onClick={() => navigate('/')}>
+                    <div style={{ display:'flex',justifyContent:'center', alignItems:'center',gap:'0.50rem',cursor:"pointer" }}>
+
                     <div className={style.brandIcon}>K</div>
 
                     <span className={style.brandName}>
                         Kasir <strong>Maju</strong>
                     </span>
+                    </div>
                 </header>
 
                 <section className={style.content}>
@@ -123,9 +184,13 @@ const RolePage = () => {
                                 >
                                     <div className={style.cardTop}>
                                         <div className={style.roleIcon}>
-                                            {role.icon}
+                                            <img src={role.logo} alt="logo"/>
                                         </div>
+                                    </div>
 
+                                    <div className={style.cardHeading}>
+                                        <div style={{ display:"flex",justifyContent:"start",alignItems:'center', gap:"0.50rem" }}>
+                                        <h2>{role.title}</h2>
                                         <div
                                             className={`${style.radio} ${
                                                 isSelected
@@ -137,10 +202,7 @@ const RolePage = () => {
                                                 <span>✓</span>
                                             )}
                                         </div>
-                                    </div>
-
-                                    <div className={style.cardHeading}>
-                                        <h2>{role.title}</h2>
+                                        </div>
                                         <span>{role.subtitle}</span>
                                     </div>
 

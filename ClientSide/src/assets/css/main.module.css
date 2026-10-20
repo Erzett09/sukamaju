@@ -1,70 +1,82 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:global(html) {
+    scroll-behavior: smooth;
+}
+
+:global(body) {
+    font-family: "Be Vietnam Pro", sans-serif;
+    color: #202124;
+    background: #ffffff;
+}
+
 .centered {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
-}
-
-.containerTextFeature {
-    height: 5rem;
-    box-shadow: 0 10px 14px 10px rgba(0,0,0,0.2);
-    margin: 2rem 0;
-    background: linear-gradient(100deg,orange,rgb(237, 178, 68),rgb(255, 187, 61),rgb(232, 193, 121));
-    text-align: center;
-}
-
-.containerTextFeature h1 {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 2rem;
-    font-size: 3.2rem;
-    color: rgb(237, 237, 237);
-    text-align: center;
 }
 
 .fullWidth {
     width: 100%;
 }
 
+/* =========================
+   HERO SECTION
+========================= */
+
 .MainSection {
-    background-image: linear-gradient(rgba(66, 58, 32, 0.65)
-        , rgba(0,0,0,0.35)),
-        url('../images/backgrounds/cashier-aesthetic.jpg');
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 
     width: 100%;
-    height: 95vh;
+    min-height: 95vh;
+
+    background-image:
+        linear-gradient(
+            110deg,
+            rgba(28, 25, 19, 0.78),
+            rgba(0, 0, 0, 0.38)
+        ),
+        url("../images/backgrounds/cashier-aesthetic.jpg");
 
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 
 .container {
     width: 100%;
-    height: 100%;
-    padding-inline: 12px;
+    max-width: 1200px;
+    min-height: inherit;
+    padding: 2rem 1.5rem;
     margin-inline: auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
 .StartMenu {
     position: relative;
-    overflow: hidden;
     isolation: isolate;
-    flex-direction: column;
+    overflow: hidden;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
     width: 100%;
-    height: 100%;
-    gap: 2rem;
+    min-height: 80vh;
+    gap: 1.75rem;
+
+    text-align: center;
 }
 
 .StartMenu::before {
@@ -72,15 +84,16 @@
     position: absolute;
     top: -50%;
     left: -100%;
-    width: 35%;
+
+    width: 30%;
     height: 200%;
 
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.8),
-        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0.65),
+        rgba(255, 255, 255, 0.12),
         transparent
     );
 
@@ -90,6 +103,323 @@
 
     animation: slashLight 1.5s ease-in-out 1s forwards;
 }
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.title h1:first-child {
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0s forwards;
+}
+
+.title h1:nth-child(2) {
+    color: #ff941f;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0.2s forwards;
+}
+
+.title .logo {
+    width: clamp(55px, 8vw, 85px);
+    height: auto;
+    object-fit: contain;
+
+    opacity: 0;
+    transform: translate(30px, -30px) rotate(30deg);
+    animation: logoEntrance 0.7s ease 0.4s forwards;
+}
+
+.StartMenu h3 {
+    max-width: 650px;
+    width: 100%;
+
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.9;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0.6s forwards;
+}
+
+.GoButton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: min(100%, 300px);
+    min-height: 56px;
+    margin-top: 1rem;
+    padding: 0.9rem 1.5rem;
+
+    border: 1px solid transparent;
+    border-radius: 14px;
+
+    background: linear-gradient(110deg, #ff941f, #ff7200);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 122, 0, 0.24);
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.6s ease 0.8s forwards;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.GoButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(255, 122, 0, 0.35);
+    filter: brightness(1.05);
+}
+
+.GoButton:focus-visible,
+.cardButton:focus-visible {
+    outline: 3px solid #ffad57;
+    outline-offset: 4px;
+}
+
+.smLogo {
+    width: 22px;
+    height: 22px;
+}
+
+/* =========================
+   FEATURE SECTION
+========================= */
+
+.SectionFeature {
+    width: 100%;
+    min-height: 100vh;
+    padding: 5rem 1.5rem 6rem;
+
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(255, 148, 31, 0.07),
+            transparent 35%
+        ),
+        #ffffff;
+}
+
+.containerTextFeature {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.containerTextFeature h1 {
+    color: #242424;
+
+    font-family: inherit;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: 0.3rem;
+}
+
+.containerTextFeature h1::after {
+    content: "";
+    display: block;
+
+    width: 65px;
+    height: 4px;
+    margin: 1rem auto 0;
+
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ffad42, #ff7200);
+}
+
+.containerTextFeature p {
+    max-width: 560px;
+    color: #777777;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Grid */
+
+.containerGrid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 280px), 1fr)
+    );
+
+    gap: 1.5rem;
+
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+    align-items: stretch;
+}
+
+/* Feature card */
+
+.ContainerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-width: 0;
+    padding: 1.25rem;
+
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 22px;
+
+    box-shadow: 0 8px 30px rgba(30, 30, 30, 0.055);
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.ContainerCard:hover {
+    border-color: rgba(255, 148, 31, 0.55);
+    box-shadow: 0 16px 38px rgba(30, 30, 30, 0.1);
+    transform: translateY(-5px);
+}
+
+.hiddenCard {
+    opacity: 0;
+    transform: translateY(35px);
+}
+
+.showCard {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image */
+
+.cardLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 220px;
+    padding: 0.5rem;
+
+    overflow: hidden;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        145deg,
+        #fff8ef,
+        #fffdf9
+    );
+}
+
+.cardLogo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transition: transform 0.35s ease;
+}
+
+.ContainerCard:hover .cardLogo img {
+    transform: scale(1.045);
+}
+
+/* Text */
+
+.cardText {
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 1.25rem 0.2rem;
+}
+
+.cardText h4 {
+    color: #292929;
+
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* Card button */
+
+.cardButton {
+    width: 100%;
+    margin-top: auto;
+}
+
+.cardButton span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: 100%;
+    min-height: 46px;
+    padding: 0.75rem 1rem;
+
+    border: 1px solid #ff8a16;
+    border-radius: 12px;
+
+    background: #fff8f0;
+    color: #ed7600;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.cardButton span:hover {
+    background: #ff850f;
+    color: #ffffff;
+    border-color: #ff850f;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes slashLight {
     from {
@@ -101,158 +431,93 @@
     }
 }
 
-.StartMenu .title {
-    font-family:"Be Vietnam Pro", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    font-size: 2.3rem;
-}
-
-.title h1:nth-child(1) {
-    color: aliceblue !important;
-    animation: fadeUp forwards .5s;
-    transform: translateY(10px);
-    opacity: 0;
-}
-.title h1:nth-child(2) {
-    opacity: 0;
-    animation: fadeUp  .5s ease 0.2s forwards;
-    transform: translateY(10px);
-    color: orange !important;
-}
-
-.StartMenu h3 {
-    font-family: "Be Vietnam Pro", sans-serif;
-    text-align: center;
-    font-size: 1.50rem;
-    color: aliceblue;
-    width: 50%;
-    opacity: 0;
-    animation: fadeUp .4s ease .9s forwards;
-}
-
-.StartMenu .logo {
-    width: 100px;
-    height: 100px;
-    transform: translateX(30px) translateY(-30px) rotate(30deg);
-    opacity: 0;
-    animation: fadeUp ease .5s .4s forwards;
-}
-
-.GoButton {
-    background: linear-gradient(100deg,aliceblue,white);
-    /* padding: 1rem; */
-    width: 25rem;
-    height: 3.59rem;
-    text-align: center;
-    font-family: "Be Vietnam Pro", sans-serif;
-    font-weight: bold;
-    margin-top: 2rem;
-    cursor: pointer;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp .4s ease 1.2s forwards;
-}
-
-.smLogo {
-    width: 25px;
-    height: 25px;
-}
-
-
-
-.SectionFeature {
-    width: 100%;
-    min-height: 100vh;
-}
-
-.containerGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    justify-content: center;
-    align-items: center;
-    padding-inline: 12px;
-    margin-inline: auto;
-    gap: 1rem;
-}
-
-.ContainerCard {
-    display: flex;
-    margin: 1rem 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* border: 1px solid black; */
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.2);
-
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.cardLogo img {
-    width: 100%;
-    height: 100%;
-}
-
-.cardLogo {
-    width: 100%;
-    height: 14rem;
-}
-
-.cardText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.0rem;
-    font-family: "Be Vietnam Pro", sans-serif;
-    margin: 1rem 0;
-}
-
-.cardButton {
-    width: 100%;
-}
-
-.cardButton span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0.70rem 0;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    color: white;
-    background-color: rgb(239, 232, 19);
-    border-radius: 2rem;
-    cursor: pointer;
-}
-
-.hiddenCard {
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.showCard {
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-
 @keyframes fadeUp {
-    
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0) rotate(0deg);
+        transform: translateY(0);
     }
 }
 
+@keyframes logoEntrance {
+    from {
+        opacity: 0;
+        transform: translate(30px, -30px) rotate(30deg);
+    }
 
+    to {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+    .MainSection {
+        min-height: 90vh;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .StartMenu {
+        min-height: 75vh;
+        gap: 1.5rem;
+    }
+
+    .title {
+        gap: 0.5rem;
+    }
+
+    .StartMenu h3 {
+        line-height: 1.8;
+    }
+
+    .SectionFeature {
+        padding: 3.5rem 1rem 4rem;
+    }
+
+    .containerTextFeature {
+        margin-bottom: 2rem;
+    }
+
+    .containerTextFeature h1 {
+        letter-spacing: 0.15rem;
+    }
+
+    .containerGrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+    }
+
+    .ContainerCard {
+        padding: 1rem;
+    }
+
+    .cardLogo {
+        height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .StartMenu::before,
+    .title h1,
+    .title .logo,
+    .StartMenu h3,
+    .GoButton {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .ContainerCard {
+        transition: none;
+    }
+
+    :global(html) {
+        scroll-behavior: auto;
+    }
+}

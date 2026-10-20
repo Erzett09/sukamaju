@@ -1,0 +1,420 @@
+/* Wrapper Halaman Utama */
+.pageWrapper {
+  min-height: 100vh;
+  background:url('../images/backgrounds/backgroundOrange.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Container Card Utama dengan CSS Grid */
+.cardContainer {
+  max-width: 1000px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(234, 88, 12, 0.12);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #ffedd5;
+}
+
+.wrapperKebijakan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.50rem;
+}
+
+.wrapperKebijakan input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border-radius: 1rem;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    flex-shrink: 0;
+
+    border: 1.5px solid #d4d4d8;
+    border-radius: 6px;
+    background-color: white;
+
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.wrapperKebijakan input[type="checkbox"]:checked {
+    background-color: #f97316;
+    border-color: #f97316;
+}
+
+
+.wrapperKebijakan input[type="checkbox"]:checked::after {
+    content: "";
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+
+
+@media (min-width: 992px) {
+  .cardContainer {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+/* =========================================
+   SISI KIRI: Panel Branding Oranye
+   ========================================= */
+.leftPanel {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
+  color: #ffffff;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.circleTop {
+  position: absolute;
+  top: -4rem;
+  left: -4rem;
+  width: 13rem;
+  height: 13rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.circleBottom {
+  position: absolute;
+  bottom: -5rem;
+  right: -4rem;
+  width: 16rem;
+  height: 16rem;
+  background-color: rgba(253, 186, 116, 0.2);
+  border-radius: 50%;
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.brandContent {
+  position: relative;
+  z-index: 10;
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.brandLogo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 1rem 0;
+}
+
+.heroSubtitle {
+  color: #ffedd5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.highlightText {
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Kotak Informasi Fitur Owner */
+.ownerFeatureBox {
+  position: relative;
+  z-index: 10;
+  margin-top: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  padding: 1.15rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.featureBoxLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fed7aa;
+  margin: 0 0 0.25rem 0;
+}
+
+.featureBoxTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffedd5;
+  line-height: 1.7;
+}
+
+/* =========================================
+   SISI KANAN: Panel Form Putih
+   ========================================= */
+.rightPanel {
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .rightPanel {
+    padding: 3rem;
+  }
+}
+
+/* Header & 1 Logo Register */
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.registerLogo {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background-color: #ffedd5;
+  border: 2px solid #fed7aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ea580c;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 6px rgba(234, 88, 12, 0.08);
+}
+
+.registerIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.ownerBadge {
+  display: inline-block;
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+.formTitle {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+}
+
+.formSubtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0.35rem 0 0 0;
+}
+
+/* Alert Box */
+.alertError {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.alertSuccess {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Form Input Grid (2 Kolom) */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.4rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 0.875rem;
+  color: #1f2937;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInput {
+  padding-right: 3.75rem;
+}
+
+.togglePasswordBtn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ea580c;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.togglePasswordBtn:hover {
+  color: #c2410c;
+}
+
+/* Tombol Submit */
+.submitBtn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.88rem 1.5rem;
+  background-color: #f97316;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.25);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submitBtn:hover {
+  background-color: #ea580c;
+}
+
+.submitBtn:active {
+  background-color: #c2410c;
+  transform: scale(0.99);
+}
+
+/* Footer Link */
+.footerText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 1.5rem 0 0 0;
+}
+
+.footerBrand {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.loginLink {
+  color: #ea580c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+

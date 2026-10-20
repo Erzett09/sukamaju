@@ -83,6 +83,9 @@ export const Main = () => {
             <section className={style.SectionFeature}>
                 <div className={`${style.centered} ${style.fullWidth} ${style.containerTextFeature}`}>
                     <h1>KEUNGGULAN</h1>
+                    <p>
+                        Semua yang kamu butuhkan untuk mengelola bisnis dengan lebih mudah.
+                    </p>
                 </div>
                 <div className={style.containerGrid}>
 
